@@ -69,7 +69,7 @@
 }
 
 .notion-collection-card-cover img {
-  border-radius: 16px;
+  border-radius: 16px 16px 0px 0px;
 }
 
 .notion-collection-card {
@@ -159,10 +159,6 @@
   text-align: center;
 }
 
-.notion-collection-column-title {
-  display: none !important;
-}
-
 .notion-collection-row-property .notion-property {
   display: flex;
   justify-content: center;
@@ -170,12 +166,6 @@
 
 .notion-collection-row-value {
   padding: 0;
-}
-
-.notion-page-cover {
-  max-width: 1200px;
-  border-radius: 24px;
-  box-shadow: 2px 2px 8px 4px rgba(15, 15, 15, 0.1);
 }
 
 @media only screen and (max-width: 1200px) {
@@ -334,11 +324,60 @@
 }
 
 
+/*****************************/
 /* custom overrides for page */
+/*****************************/
 .index-page .notion-collection-header {
   display: none;
 }
 
 .index-page .notion-title {
   display: none;
+}
+
+/*
+This fixes bug for multiple images side by side not displaying properly
+These element calculates an inline height value which is breaking the layout
+Rather than trying to track down and fix in react-notion-x for now,
+Override via CSS
+*/
+.notion-asset-wrapper-image div {
+  height: auto !important;
+}
+
+.notion-header {
+  margin-top: -3px;
+}
+
+.notion-gallery-grid {
+  gap: 4vmin;
+}
+
+/* Hide the Database properties from showing */
+.notion-title + .notion-collection-row {
+  display: none;
+}
+
+.notion-collection-card {
+  border: 1px solid white !important;
+}
+
+
+/* Fix scrollbar on database tables for desktop */
+@media screen and (min-width: 800px) {
+  .notion-table {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    width: auto !important;
+    max-width: inherit !important;
+  }
+
+  .notion-table::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Fix elements going off screen on mobile */
+.notion-list, .notion-list-numbered {
+  width: 100%;
 }
