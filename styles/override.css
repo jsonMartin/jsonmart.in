@@ -1,0 +1,72 @@
+
+/*****************************/
+/* custom overrides for page */
+/*****************************/
+.index-page .notion-collection-header {
+  display: none;
+}
+
+.index-page .notion-title {
+  display: none;
+}
+
+.notion-collection-row-body .notion-collection-row-property {
+  display: none;
+}
+
+.notion-collection-row-body .notion-collection-row-property:nth-child(-n+1) {
+  display: inline-block;
+}
+/*
+This fixes bug for multiple images side by side not displaying properly
+These element calculates an inline height value which is breaking the layout
+Rather than trying to track down and fix in react-notion-x for now,
+Override via CSS
+*/
+.notion-column .notion-asset-wrapper-image div {
+  height: auto !important;
+  width: auto !important;
+}
+
+.notion-header {
+  margin-top: -3px;
+}
+
+.notion-gallery-grid {
+  gap: 4vmin;
+}
+
+/* Hide the Database properties from showing */
+.notion-title + .notion-collection-row {
+  display: none;
+}
+
+.notion-collection-card {
+  border: 1px solid white !important;
+}
+
+
+/* Fix scrollbar on database tables for desktop */
+@media screen and (min-width: 800px) {
+  .notion-table {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    width: auto !important;
+    max-width: inherit !important;
+  }
+
+  .notion-table::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Fix elements going off screen on mobile */
+.notion-list, .notion-list-numbered {
+  width: 100%;
+}
+
+/* Fix floating image width overflowing container */
+div.notion-row div.notion-column img {
+  max-width: 400px;
+}
+
