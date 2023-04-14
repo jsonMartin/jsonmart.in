@@ -1,4 +1,3 @@
-
 /*****************************/
 /* custom overrides for page */
 /*****************************/
@@ -10,6 +9,10 @@
   display: none;
 }
 
+.index-page .notion-page-icon {
+  display: none;
+}
+
 .notion-collection-row-body .notion-collection-row-property {
   display: none;
 }
@@ -17,6 +20,19 @@
 .notion-collection-row-body .notion-collection-row-property:nth-child(-n+1) {
   display: inline-block;
 }
+
+@media only screen and (max-width: 639px) {
+  .notion-block-bef6bcaf13e2488f84f89078d553763e>div>span {
+    height: 350px !important;
+  }
+
+  /*TODO: only on smaller than 640px */
+  .notion-block-829c999d9ec349e9a7d46fb5e3200f00 {
+    margin-top: -70px;
+    margin-bottom: 200px;
+  }
+}
+
 /*
 This fixes bug for multiple images side by side not displaying properly
 These element calculates an inline height value which is breaking the layout
@@ -37,7 +53,7 @@ Override via CSS
 }
 
 /* Hide the Database properties from showing */
-.notion-title + .notion-collection-row {
+.notion-title+.notion-collection-row {
   display: none;
 }
 
@@ -49,8 +65,10 @@ Override via CSS
 /* Fix scrollbar on database tables for desktop */
 @media screen and (min-width: 800px) {
   .notion-table {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
     width: auto !important;
     max-width: inherit !important;
   }
@@ -61,7 +79,8 @@ Override via CSS
 }
 
 /* Fix elements going off screen on mobile */
-.notion-list, .notion-list-numbered {
+.notion-list,
+.notion-list-numbered {
   width: 100%;
 }
 
@@ -69,4 +88,3 @@ Override via CSS
 div.notion-row div.notion-column img {
   max-width: 400px;
 }
-
