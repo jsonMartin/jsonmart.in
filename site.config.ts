@@ -9,9 +9,9 @@ export default siteConfig({
   rootNotionSpaceId: null,
 
   // basic site info (required)
-  name: 'jsonMartin',
-  domain: 'jsonmart.in',
-  author: 'jsonMartin',
+  name: 'Jason Martin',
+  domain: 'jasonmart.in',
+  author: 'Jason Martin',
 
   // open graph metadata (optional)
   description: 'Welcome to the jsonVerse!',
